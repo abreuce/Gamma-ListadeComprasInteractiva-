@@ -9,7 +9,7 @@ using namespace std;
 /*
     Clase ArbolB
 
-    Implementa un Árbol B de orden 3 para organizar
+    Implementa un Árbol B de orden 4 para organizar
     productos utilizando el ID como clave principal.
 
     Operaciones disponibles:
