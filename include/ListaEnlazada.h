@@ -10,7 +10,7 @@ using namespace std;
     Clase ListaEnlazada
 
     Administra los productos de SmartShop mediante
-    una lista simplemente enlazada.
+    una lista simplemente enlazada
 
     Operaciones disponibles:
     - Insertar
