@@ -11,7 +11,7 @@ Pila::Pila()
 }
 
 /*
-    Inserta una nueva acción en la pila.
+    Inserta una nueva acción en la pila
 
     Limitación:
     La pila solo admite hasta 100 elementos.
