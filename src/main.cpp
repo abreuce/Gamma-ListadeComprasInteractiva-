@@ -3,6 +3,7 @@
 #include "../include/Cola.h"
 #include "../include/ListaEnlazada.h"
 #include "../include/ArbolBinario.h"
+#include "../include/ArbolB.h"
 
 using namespace std;
 
@@ -117,6 +118,22 @@ else
 {
     cout << "\nProducto no encontrado." << endl;
 }    
+
+// ==========================
+// DEMOSTRACIÓN DE ÁRBOL B
+// ==========================
+
+cout << "\n===== ÁRBOL B =====" << endl;
+
+ArbolB arbolB;
+
+arbolB.insertar(Producto(10, "Laptop", 5));
+arbolB.insertar(Producto(20, "Mouse", 15));
+arbolB.insertar(Producto(5, "Teclado", 8));
+arbolB.insertar(Producto(15, "Monitor", 4));
+
+cout << "\nContenido del Árbol B:\n";
+arbolB.mostrar();
     
     return 0;
 }
