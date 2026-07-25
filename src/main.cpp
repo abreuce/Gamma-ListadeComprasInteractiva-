@@ -86,5 +86,23 @@ int main()
     cout << "\nInventario despues de eliminar el producto con ID 2:\n";
     inventario.mostrar();
 
+// ==========================
+// DEMOSTRACIÓN DE ÁRBOL BINARIO
+// ==========================
+
+cout << "\n===== ÁRBOL BINARIO =====" << endl;
+
+ArbolBinario arbol;
+
+// Insertar productos
+arbol.insertar(Producto(5, "Laptop", 10));
+arbol.insertar(Producto(2, "Mouse", 25));
+arbol.insertar(Producto(8, "Monitor", 12));
+arbol.insertar(Producto(1, "Teclado", 18));
+arbol.insertar(Producto(3, "Audifonos", 20));
+
+cout << "\nRecorrido InOrden:\n";
+arbol.inOrden();
+    
     return 0;
 }
