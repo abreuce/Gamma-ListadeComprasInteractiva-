@@ -97,3 +97,56 @@ void ArbolB::insertarNoLleno(NodoB* nodo, Producto producto)
         insertarNoLleno(nodo->hijos[i], producto);
     }
 }
+
+/*
+    Divide un nodo hijo cuando alcanza
+    el número máximo de productos.
+
+    El producto central asciende al nodo padre
+    y el nodo se divide en dos partes.
+
+    Esta implementación es una versión básica
+    para demostrar el funcionamiento de un Árbol B.
+
+    Casos no contemplados:
+    - Eliminación de claves.
+    - Fusión de nodos.
+*/
+void ArbolB::dividirHijo(NodoB* padre, int indice, NodoB* hijo)
+{
+    NodoB* nuevo = new NodoB(hijo->esHoja);
+
+    nuevo->cantidadProductos = 1;
+
+    // Copiar la última clave al nuevo nodo
+    nuevo->productos[0] = hijo->productos[2];
+
+    // Si no es hoja, mover los hijos correspondientes
+    if (!hijo->esHoja)
+    {
+        nuevo->hijos[0] = hijo->hijos[2];
+        nuevo->hijos[1] = hijo->hijos[3];
+    }
+
+    // El nodo original conserva únicamente la primera clave
+    hijo->cantidadProductos = 1;
+
+    // Desplazar los hijos del padre
+    for (int j = padre->cantidadProductos; j >= indice + 1; j--)
+    {
+        padre->hijos[j + 1] = padre->hijos[j];
+    }
+
+    padre->hijos[indice + 1] = nuevo;
+
+    // Desplazar las claves del padre
+    for (int j = padre->cantidadProductos - 1; j >= indice; j--)
+    {
+        padre->productos[j + 1] = padre->productos[j];
+    }
+
+    // Promover la clave central
+    padre->productos[indice] = hijo->productos[1];
+
+    padre->cantidadProductos++;
+}
