@@ -23,7 +23,7 @@ class NodoB
 {
 public:
 
-    static const int ORDEN = 3;
+    static const int ORDEN = 4;
 
     Producto productos[ORDEN - 1];
     NodoB* hijos[ORDEN];
