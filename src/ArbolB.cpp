@@ -150,3 +150,46 @@ void ArbolB::dividirHijo(NodoB* padre, int indice, NodoB* hijo)
 
     padre->cantidadProductos++;
 }
+
+/*
+    Inserta un producto en el Árbol B.
+
+    Si el árbol está vacío, crea la raíz.
+    Si la raíz está llena, se divide antes de insertar.
+*/
+void ArbolB::insertar(Producto producto)
+{
+    // Si el árbol está vacío
+    if (raiz == nullptr)
+    {
+        raiz = new NodoB(true);
+        raiz->productos[0] = producto;
+        raiz->cantidadProductos = 1;
+        return;
+    }
+
+    // Si la raíz está llena
+    if (raiz->cantidadProductos == NodoB::ORDEN - 1)
+    {
+        NodoB* nuevaRaiz = new NodoB(false);
+
+        nuevaRaiz->hijos[0] = raiz;
+
+        dividirHijo(nuevaRaiz, 0, raiz);
+
+        int i = 0;
+
+        if (producto.id > nuevaRaiz->productos[0].id)
+        {
+            i++;
+        }
+
+        insertarNoLleno(nuevaRaiz->hijos[i], producto);
+
+        raiz = nuevaRaiz;
+    }
+    else
+    {
+        insertarNoLleno(raiz, producto);
+    }
+}
