@@ -1,56 +1,89 @@
 #include <iostream>
 #include "../include/Pila.h"
 #include "../include/Cola.h"
+#include "../include/ListaEnlazada.h"
 
 using namespace std;
 
 int main()
 {
-    cout << "==========================================" << endl;
-    cout << "          SMARTSHOP" << endl;
-    cout << " Lista de Compras Interactiva" << endl;
-    cout << " Proyecto de Estructuras de Datos" << endl;
-    cout << "==========================================" << endl;
+    // ==========================
+    // DEMOSTRACIÓN DE PILA
+    // ==========================
 
-    // ===========================
-    // Prueba de la Pila
-    // ===========================
+    cout << "===== PILA =====" << endl;
 
     Pila historial;
 
-    historial.push("Agregar Leche");
-    historial.push("Agregar Pan");
-    historial.push("Eliminar Azucar");
+    historial.push("Agregar teclado");
+    historial.push("Agregar mouse");
+    historial.push("Eliminar monitor");
 
-    cout << "\n===== PRUEBA DE PILA =====" << endl;
     historial.mostrar();
 
     cout << "\nUltima accion: " << historial.peek() << endl;
 
     historial.pop();
 
-    cout << "\nDespues de hacer pop():" << endl;
+    cout << "\nDespues de eliminar la ultima accion:\n";
     historial.mostrar();
 
-    // ===========================
-    // Prueba de la Cola
-    // ===========================
+
+    // ==========================
+    // DEMOSTRACIÓN DE COLA
+    // ==========================
+
+    cout << "\n===== COLA =====" << endl;
 
     Cola compras;
 
-    compras.enqueue("Leche");
-    compras.enqueue("Pan");
-    compras.enqueue("Arroz");
+    compras.enqueue("Pedido #1");
+    compras.enqueue("Pedido #2");
+    compras.enqueue("Pedido #3");
 
-    cout << "\n===== PRUEBA DE COLA =====" << endl;
     compras.mostrar();
 
-    cout << "\nPrimer producto: " << compras.front() << endl;
+    cout << "\nPrimer pedido: " << compras.front() << endl;
 
     compras.dequeue();
 
-    cout << "\nDespues de hacer dequeue():" << endl;
+    cout << "\nDespues de atender un pedido:\n";
     compras.mostrar();
+
+
+    // ==========================
+    // DEMOSTRACIÓN DE LISTA ENLAZADA
+    // ==========================
+
+    cout << "\n===== LISTA ENLAZADA =====" << endl;
+
+    ListaEnlazada inventario;
+
+    inventario.insertar(Producto(1, "Teclado", 15));
+    inventario.insertar(Producto(2, "Mouse", 30));
+    inventario.insertar(Producto(3, "Monitor", 8));
+
+    cout << "\nInventario inicial:\n";
+    inventario.mostrar();
+
+    Nodo* encontrado = inventario.buscar(2);
+
+    if (encontrado != nullptr)
+    {
+        cout << "\nProducto encontrado:\n";
+        cout << "ID: " << encontrado->producto.id << endl;
+        cout << "Nombre: " << encontrado->producto.nombre << endl;
+        cout << "Cantidad: " << encontrado->producto.cantidad << endl;
+    }
+    else
+    {
+        cout << "\nProducto no encontrado." << endl;
+    }
+
+    inventario.eliminar(2);
+
+    cout << "\nInventario despues de eliminar el producto con ID 2:\n";
+    inventario.mostrar();
 
     return 0;
 }
