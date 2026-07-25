@@ -9,7 +9,7 @@ using namespace std;
 /*
     Clase Pila
 
-    Esta clase implementa una pila desde cero utilizando un arreglo.
+    Esta clase implementa una pila desde cero utilizando un arreglo
     Será utilizada para almacenar el historial de acciones realizadas
     por el usuario dentro de SmartShop.
 
