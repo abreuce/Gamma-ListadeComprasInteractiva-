@@ -103,6 +103,20 @@ arbol.insertar(Producto(3, "Audifonos", 20));
 
 cout << "\nRecorrido InOrden:\n";
 arbol.inOrden();
+
+NodoArbol* encontradoArbol = arbol.buscar(3);
+
+if (encontradoArbol != nullptr)
+{
+    cout << "\nProducto encontrado en el árbol:\n";
+    cout << "ID: " << encontradoArbol->producto.id << endl;
+    cout << "Nombre: " << encontradoArbol->producto.nombre << endl;
+    cout << "Cantidad: " << encontradoArbol->producto.cantidad << endl;
+}
+else
+{
+    cout << "\nProducto no encontrado." << endl;
+}    
     
     return 0;
 }
