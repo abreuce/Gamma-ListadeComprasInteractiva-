@@ -9,17 +9,16 @@ using namespace std;
 /*
     Clase ArbolB
 
-    Implementa un Árbol B de orden 4 para organizar
-    productos utilizando el ID como clave principal.
+    Implementación básica de un Árbol B de orden 4.
 
-    Operaciones disponibles:
+    Operaciones implementadas:
     - Insertar productos.
-    - Mostrar el contenido del árbol.
+    - Mostrar productos.
 
     Casos no contemplados:
-    - No implementa eliminación.
-    - No realiza fusión de nodos.
-    - Solo permite inserciones.
+    - Eliminación.
+    - Fusión de nodos.
+    - Rebalanceo avanzado.
 */
 
 class ArbolB
@@ -28,24 +27,22 @@ private:
 
     NodoB* raiz;
 
-    // Recorre el árbol mostrando los productos
     void mostrarRecursivo(NodoB* nodo);
 
-    // Divide un nodo cuando alcanza su capacidad máxima
-    void dividirHijo(NodoB* padre, int indice, NodoB* hijo);
-
-    // Inserta un producto en un nodo que no está lleno
     void insertarNoLleno(NodoB* nodo, Producto producto);
+
+    void dividirHijo(
+        NodoB* padre,
+        int indice,
+        NodoB* hijo
+    );
 
 public:
 
-    // Constructor
     ArbolB();
 
-    // Inserta un producto en el árbol
     void insertar(Producto producto);
 
-    // Muestra el contenido del árbol
     void mostrar();
 };
 
