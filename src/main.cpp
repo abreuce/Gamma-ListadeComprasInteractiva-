@@ -2,6 +2,7 @@
 #include "../include/Pila.h"
 #include "../include/Cola.h"
 #include "../include/ListaEnlazada.h"
+#include "../include/ArbolBinario.h"
 
 using namespace std;
 
