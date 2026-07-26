@@ -18,7 +18,7 @@ int HashTable::funcionHash(int id)
 // Insertar un producto
 void HashTable::insertar(const Producto& producto)
 {
-    int indice = funcionHash(producto.getId());
+    int indice = funcionHash(producto.id);
     tabla[indice].push_back(producto);
 }
 
@@ -29,7 +29,7 @@ Producto* HashTable::buscar(int id)
 
     for (auto& producto : tabla[indice])
     {
-        if (producto.getId() == id)
+        if (producto.id == id)
         {
             return &producto;
         }
@@ -55,8 +55,8 @@ void HashTable::mostrar()
         {
             for (const auto& producto : tabla[i])
             {
-                cout << producto.getNombre()
-                     << "(ID:" << producto.getId() << ") ";
+                cout << producto.nombre
+                     << " (ID:" << producto.id << ") ";
             }
         }
 
