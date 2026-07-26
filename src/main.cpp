@@ -2,6 +2,7 @@
 #include "../include/Pila.h"
 #include "../include/Cola.h"
 #include "../include/ListaEnlazada.h"
+#include "../include/HashTable.h"
 
 using namespace std;
 
@@ -84,6 +85,33 @@ int main()
 
     cout << "\nInventario despues de eliminar el producto con ID 2:\n";
     inventario.mostrar();
+
+    cout << "\n===== HASHING =====" << endl;
+
+HashTable hash;
+
+// Insertar productos
+hash.insertar(Producto(1, "Teclado", 15));
+hash.insertar(Producto(2, "Mouse", 30));
+hash.insertar(Producto(3, "Monitor", 8));
+
+// Mostrar la tabla
+hash.mostrar();
+
+// Buscar un producto
+Producto* encontradoHash = hash.buscar(2);
+
+if (encontradoHash != nullptr)
+{
+    cout << "\nProducto encontrado en Hash:" << endl;
+    cout << "ID: " << encontradoHash->id << endl;
+    cout << "Nombre: " << encontradoHash->nombre << endl;
+    cout << "Cantidad: " << encontradoHash->cantidad << endl;
+}
+else
+{
+    cout << "\nProducto no encontrado." << endl;
+}
     
     return 0;
 }
