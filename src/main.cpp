@@ -2,8 +2,6 @@
 #include "../include/Pila.h"
 #include "../include/Cola.h"
 #include "../include/ListaEnlazada.h"
-#include "../include/ArbolBinario.h"
-#include "../include/ArbolB.h"
 
 using namespace std;
 
@@ -86,54 +84,6 @@ int main()
 
     cout << "\nInventario despues de eliminar el producto con ID 2:\n";
     inventario.mostrar();
-
-// ==========================
-// DEMOSTRACIÓN DE ÁRBOL BINARIO
-// ==========================
-
-cout << "\n===== ÁRBOL BINARIO =====" << endl;
-
-ArbolBinario arbol;
-
-// Insertar productos
-arbol.insertar(Producto(5, "Laptop", 10));
-arbol.insertar(Producto(2, "Mouse", 25));
-arbol.insertar(Producto(8, "Monitor", 12));
-arbol.insertar(Producto(1, "Teclado", 18));
-arbol.insertar(Producto(3, "Audifonos", 20));
-
-cout << "\nRecorrido InOrden:\n";
-arbol.inOrden();
-
-NodoArbol* encontradoArbol = arbol.buscar(3);
-
-if (encontradoArbol != nullptr)
-{
-    cout << "\nProducto encontrado en el árbol:\n";
-    cout << "ID: " << encontradoArbol->producto.id << endl;
-    cout << "Nombre: " << encontradoArbol->producto.nombre << endl;
-    cout << "Cantidad: " << encontradoArbol->producto.cantidad << endl;
-}
-else
-{
-    cout << "\nProducto no encontrado." << endl;
-}    
-
-// ==========================
-// DEMOSTRACIÓN DE ÁRBOL B
-// ==========================
-
-cout << "\n===== ÁRBOL B =====" << endl;
-
-ArbolB arbolB;
-
-arbolB.insertar(Producto(10, "Laptop", 5));
-arbolB.insertar(Producto(20, "Mouse", 15));
-arbolB.insertar(Producto(5, "Teclado", 8));
-arbolB.insertar(Producto(15, "Monitor", 4));
-
-cout << "\nContenido del Árbol B:\n";
-arbolB.mostrar();
     
     return 0;
 }
