@@ -27,9 +27,12 @@ private:
     vector<vector<int>> matriz;
     vector<string> nombres;
 
+// Función auxiliar utilizada por el recorrido DFS.
+
     void DFSRecursivo(int vertice, vector<bool>& visitado);
 
 public:
+// Constructor del grafo.
     Grafo(int vertices);
 
     void agregarVertice(int indice, string nombre);
