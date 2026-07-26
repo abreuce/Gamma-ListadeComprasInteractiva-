@@ -3,6 +3,7 @@
 #include "../include/Cola.h"
 #include "../include/ListaEnlazada.h"
 #include "../include/HashTable.h"
+#include "../include/Grafo.h"
 
 using namespace std;
 
@@ -112,6 +113,25 @@ else
 {
     cout << "\nProducto no encontrado." << endl;
 }
+
+cout << "\n===== GRAFOS =====" << endl;
+
+Grafo grafo(3);
+
+// Agregar vértices
+grafo.agregarVertice(0, "Teclado");
+grafo.agregarVertice(1, "Mouse");
+grafo.agregarVertice(2, "Monitor");
+
+// Crear conexiones
+grafo.agregarArista(0, 1);
+grafo.agregarArista(0, 2);
+
+// Mostrar el grafo
+grafo.mostrar();
+
+// Recorrido DFS
+grafo.DFS(0);
     
     return 0;
 }
