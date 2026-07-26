@@ -49,6 +49,9 @@ void Pila::pop()
 
 /*
     Devuelve el elemento ubicado en la cima.
+
+    Limitación:
+    Si la pila está vacía devuelve una cadena vacía.
 */
 string Pila::peek()
 {
@@ -70,6 +73,10 @@ bool Pila::isEmpty()
 
 /*
     Muestra todas las acciones almacenadas.
+
+    Limitación:
+    Si la pila está vacía solo muestra un mensaje
+    indicando que no existen acciones registradas.
 */
 void Pila::mostrar()
 {
