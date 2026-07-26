@@ -3,26 +3,53 @@
 
 using namespace std;
 
-// Constructor
+/*
+    Constructor.
+
+    Inicializa la tabla hash con un tamaño fijo
+    de diez posiciones.
+*/
 HashTable::HashTable()
 {
     tabla.resize(TAM);
 }
 
-// Función hash
+/*
+    Calcula el índice donde se almacenará el producto.
+
+    La posición se obtiene aplicando la operación:
+
+        ID % TAM
+
+    Limitación:
+    Pueden existir colisiones cuando diferentes IDs
+    generan el mismo índice.
+*/
 int HashTable::funcionHash(int id)
 {
     return id % TAM;
 }
 
-// Insertar un producto
+/*
+    Inserta un producto dentro de la tabla hash.
+
+    Si ocurre una colisión, el producto se almacena
+    en la lista correspondiente al índice calculado.
+*/
 void HashTable::insertar(const Producto& producto)
 {
     int indice = funcionHash(producto.id);
     tabla[indice].push_back(producto);
 }
 
-// Buscar un producto por ID
+/*
+    Busca un producto por su identificador.
+
+    Devuelve un puntero al producto si existe.
+
+    Limitación:
+    Si el producto no está almacenado devuelve nullptr.
+*/
 Producto* HashTable::buscar(int id)
 {
     int indice = funcionHash(id);
@@ -38,7 +65,10 @@ Producto* HashTable::buscar(int id)
     return nullptr;
 }
 
-// Mostrar toda la tabla
+/*
+    Recorre toda la tabla hash y muestra
+    el contenido almacenado en cada posición.
+*/
 void HashTable::mostrar()
 {
     cout << "\n===== TABLA HASH =====\n";
